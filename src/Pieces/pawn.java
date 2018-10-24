@@ -30,7 +30,7 @@ public class pawn extends piece{
 	
 	private void pawnSpecieal() {
 		// TODO Auto-generated method stub
-		Move.DeletMoves();
+		
 		
 		
 		if(this.team == 1){
@@ -38,8 +38,8 @@ public class pawn extends piece{
 		}else{
 			this.direction = -1;
 		}
-		
-		if(!moved && team == Board.getTeamPlaying()&& (Exec.getBoard().getPiece(this.getY()+1*direction, this.getX()).getClass().getSimpleName().equals("Nopiece"))){
+		Move.DeletMoves();
+		if(!moved && (Exec.getBoard().getPiece(this.getY()+2*direction, this.getX()).getClass().getSimpleName().equals("Nopiece"))){
 			
 			
 			Move second = new Move(this.getY()+(2* this.direction), this.getX());
@@ -48,11 +48,11 @@ public class pawn extends piece{
 			
 			int hej = Exec.getBoard().pieces[(int) ((int) x)][(int) ((int) y)];
 		}
-		if(team == Board.getTeamPlaying()){
-			if(this.getY()+1*direction < 8 && this.getX()+1*direction <8 &&this.getY()+1*direction > 0 && this.getX()+1*direction >0)
+		
+		if(this.getY()+1*direction < 8 && this.getX()+1*direction <8 &&this.getY()+1*direction > 0 && this.getX()+1*direction >0)
 			
 				
-				if(ifEnemy(this.getY()+1*direction, this.getX()+1*direction)){
+			if(ifEnemy(this.getY()+1*direction, this.getX()+1*direction)){
 				
 				Move left = null;
 				 left = new Move(this.getY()+(1*this.direction), this.getX()+(1*direction));
@@ -69,8 +69,8 @@ public class pawn extends piece{
 			}
 		
 			
-		}
-		if(team == Board.getTeamPlaying()&& (Exec.getBoard().getPiece(this.getY()+1*direction, this.getX()).getClass().getSimpleName().equals("Nopiece"))){
+		
+		if( (Exec.getBoard().getPiece(this.getY()+1*direction, this.getX()).getClass().getSimpleName().equals("Nopiece"))){
 			Move first = new Move(this.getY()+(1* this.direction), this.getX());
 			
 			Move.addMove(first);
@@ -86,11 +86,10 @@ public class pawn extends piece{
 		// TODO Auto-generated method stub
 		
 		
-		
-		pawnSpecieal();
-		
-		super.CheckMoves();
-		
+		if(this.team == Board.getTeamPlaying()){
+			pawnSpecieal();
+			super.CheckMoves();
+		}
 		
 		
 			

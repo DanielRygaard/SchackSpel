@@ -13,42 +13,37 @@ public class Löpare extends piece{
 		// TODO Auto-generated constructor stub
 		this.setFill(Color.WHITE);
 	}
-	int dx = -1;
-	int dy = -1;
+	
 	
 	
 	@Override
 	public void CheckMoves() {
-		Move.DeletMoves();
-		LöpareSpecial();
 		
 		
-		
-		super.CheckMoves();
+		if(this.team == Board.getTeamPlaying()){
+			LöpareSpecial();
+			super.CheckMoves();
+		}
 	}
 	
+	int dx;
+	int dy;
 	private void LöpareSpecial() {
 		// TODO Auto-generated method stub
-
-		if(this.team == Board.getTeamPlaying()){
-			dy = -1;
-			dx = -1;
-			
-			setMovesRight(this.getY()+dy, this.getX()+dx);
-			
-			dy = 1;
-			dx = 1;
-			
-			setMovesRight(this.getY()+dy, this.getX()+dx);
-			
-			dy = -1;
-			dx = 1;
-			setMovesRight(this.getY()+dy, this.getX()+dx);
-			
-			dy = 1;
-			dx = -1;
-			setMovesRight(this.getY()+dy, this.getX()+dx);
+		Move.DeletMoves();
+		for (int i = -1; i < 2; i+=2) {
+			for (int j = -1; j < 2; j+=2) {
+				dy = i;
+				dx = j;
+				
+				
+				horizontal(this.getY()+dy, this.getX()+dx);
+				
+				
+			}
 		}
+		
+		
 	}
 	
 	/*
@@ -59,7 +54,7 @@ public class Löpare extends piece{
 	 * 
 	 */
 	
-	private void setMovesRight(int y,int x) {
+	private void horizontal(int y,int x) {
 		// TODO Auto-generated method stub
 
 		if(x>7||x<0||y>7||y<0){
@@ -82,7 +77,7 @@ public class Löpare extends piece{
 		}
 		Move move = new Move(y, x);
 		Move.addMove(move);
-		setMovesRight(y+dy, x+dx);
+		horizontal(y+dy, x+dx);
 		
 		
 	}

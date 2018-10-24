@@ -77,6 +77,28 @@ public abstract class piece extends Circle{
 		
 	}
 
+	
+	protected boolean ifPiece(int y, int x) {
+		// TODO Auto-generated method stub
+
+		y += this.getY();
+		x += this.getX();
+		
+		if(inParameters(y) && inParameters(x)){
+			System.out.println(Exec.getBoard().getMapPiece().get(y).get(x).getClass().getSimpleName());
+			return !(Exec.getBoard().getMapPiece().get(y).get(x).getClass().getSimpleName().equals("Nopiece"));
+			
+		}
+		
+		return true;
+	}
+	
+	protected boolean inParameters(int k){
+		
+		if(k<8 && k>=0)
+			return true;
+		return false;
+	}
 	/**
 	 * Setts the team of a piece
 	 * @param team
@@ -105,7 +127,7 @@ public abstract class piece extends Circle{
 		
 		
 		
-	
+		
 		
 		Exec.board.getChildren().addAll(Move.getMoves());
 		

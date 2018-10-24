@@ -17,7 +17,7 @@ public class Move extends Rectangle{
 		this.setWidth(square.SIZE);
 		this.setHeight(square.SIZE);
 		this.setFill(Color.BLACK);
-		this.setOpacity(0.5);
+		
 		this.setTranslateX(x*square.SIZE);
 		this.setTranslateY((y*square.SIZE));
 		this.x = x;
@@ -48,5 +48,6 @@ public class Move extends Rectangle{
 	public void enemyBlock() {
 		// TODO Auto-generated method stub
 		this.setFill(Color.RED);
+		this.setOpacity(0.5);
 	}
 }
