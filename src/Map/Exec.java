@@ -15,6 +15,9 @@ public class Exec extends Application {
 	Scene scene;
 	public static Board board;
 	
+	public static double width = square.SIZE*10;
+	public static double height = square.SIZE*8;
+	
 	public static void main(String[] args) {
 		launch(args);
 		
@@ -31,7 +34,7 @@ public class Exec extends Application {
 		
 		
 		
-	    scene = new Scene(board, square.SIZE*8, square.SIZE*8);
+	    scene = new Scene(board, width, height);
 		
 	    scene.setOnKeyPressed(e->{
 			System.out.println("hej");

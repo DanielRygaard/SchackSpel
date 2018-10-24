@@ -7,7 +7,7 @@ import javafx.scene.shape.Rectangle;
 public class square extends Rectangle{
 
 	
-	public static double SIZE = 80;
+	public static double SIZE = 100;
 	public static Paint DARK = Color.SANDYBROWN;
 	public static Paint LIGHT = Color.SADDLEBROWN;
 	

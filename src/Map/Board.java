@@ -16,7 +16,10 @@ import Pieces.piece;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.control.TextField;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 public class Board extends Group{
 
@@ -30,6 +33,9 @@ public class Board extends Group{
 	 * 5.Kung
 	 * 6.Dam
 	 */
+	
+	double width = Exec.width;
+	double height = Exec.height;
 	public int[][] pieces =
 		{  
 		{14,13,12,15,16,12,13,14},
@@ -41,6 +47,8 @@ public class Board extends Group{
 		{21,21,21,21,21,21,21,21},
 		{24,23,22,25,26,22,23,24}
 		};
+	
+	static Text who = new Text();
 	
 	ArrayList<ArrayList<Node>> MapPiece = new ArrayList<ArrayList<Node>>();
 	ArrayList<ArrayList<Node>> MapSquare = new ArrayList<ArrayList<Node>>();
@@ -77,6 +85,22 @@ public class Board extends Group{
 			}
 			MapSquare.add(row);
 		}
+		
+		Text turn = new Text("Turn:");
+		turn.setTranslateX(width-turn.getBoundsInParent().getWidth()-150);
+		turn.setFont(Font.font(50));
+		turn.setTranslateY(100);
+		
+		
+		who.setText("Dark");
+		who.setTranslateX(width - who.getBoundsInParent().getWidth()-100);
+		who.setFont(Font.font(40));
+		who.setTranslateY(150);
+		
+		this.getChildren().add(who);
+		this.getChildren().add(turn);
+		
+		
 		sqare.setOnMouseClicked(e->{
 			
 			
@@ -220,8 +244,11 @@ public class Board extends Group{
 
 		if(teamPlaying == 1){
 			teamPlaying = 2;
-		}else
+			who.setText("dark");
+		}else{
 			teamPlaying = 1;
+			who.setText("light");
+		}
 	}
 	
 	public piece getPiece(int y, int x) {

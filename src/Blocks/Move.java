@@ -16,7 +16,7 @@ public class Move extends Rectangle{
 	public Move(int y, int x){
 		this.setWidth(square.SIZE);
 		this.setHeight(square.SIZE);
-		this.setFill(Color.BLACK);
+		this.setFill(Color.LIGHTGREY);
 		
 		this.setTranslateX(x*square.SIZE);
 		this.setTranslateY((y*square.SIZE));
