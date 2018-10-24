@@ -1,6 +1,7 @@
 package Pieces;
 
 import Blocks.Move;
+import Map.Board;
 import Map.Exec;
 import javafx.scene.paint.Color;
 
@@ -29,23 +30,25 @@ public class Löpare extends piece{
 	private void LöpareSpecial() {
 		// TODO Auto-generated method stub
 
-		dy = -1;
-		dx = -1;
-		
-		setMovesRight(this.getY()+dy, this.getX()+dx);
-		
-		dy = 1;
-		dx = 1;
-		
-		setMovesRight(this.getY()+dy, this.getX()+dx);
-		
-		dy = -1;
-		dx = 1;
-		setMovesRight(this.getY()+dy, this.getX()+dx);
-		
-		dy = 1;
-		dx = -1;
-		setMovesRight(this.getY()+dy, this.getX()+dx);
+		if(this.team == Board.getTeamPlaying()){
+			dy = -1;
+			dx = -1;
+			
+			setMovesRight(this.getY()+dy, this.getX()+dx);
+			
+			dy = 1;
+			dx = 1;
+			
+			setMovesRight(this.getY()+dy, this.getX()+dx);
+			
+			dy = -1;
+			dx = 1;
+			setMovesRight(this.getY()+dy, this.getX()+dx);
+			
+			dy = 1;
+			dx = -1;
+			setMovesRight(this.getY()+dy, this.getX()+dx);
+		}
 	}
 	
 	/*
