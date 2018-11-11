@@ -14,16 +14,16 @@ import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
-public class pawn extends piece{
+public class Pawn extends piece{
 
 	
 	
 	
 	
 	
-	public pawn(int x, int y) {
+	public Pawn(int x, int y) {
 		super(x, y);
-		this.setFill(Color.GREEN);
+		
 		
 	}
 
@@ -31,7 +31,7 @@ public class pawn extends piece{
 	private void pawnSpecieal() {
 		// TODO Auto-generated method stub
 		
-		
+		Move.DeletMoves();
 		
 		if(this.team == 1){
 			this.direction = 1;
@@ -46,10 +46,10 @@ public class pawn extends piece{
 			
 			Move.addMove(second);
 			
-			int hej = Exec.getBoard().pieces[(int) ((int) x)][(int) ((int) y)];
+		
 		}
 		
-		if(this.getY()+1*direction < 8 && this.getX()+1*direction <8 &&this.getY()+1*direction > 0 && this.getX()+1*direction >0)
+		if(this.inParameters(this.getY()) && this.inParameters(this.getX()))
 			
 				
 			if(ifEnemy(this.getY()+1*direction, this.getX()+1*direction)){
@@ -60,7 +60,6 @@ public class pawn extends piece{
 				 Move.addMove(left);
 			}
 				
-			if(this.getY()+1*direction < 8 && this.getX()-1*direction <8 &&this.getY()+1*direction > 0 && this.getX()-1*direction >0)
 			if(ifEnemy(this.getY()+1*direction, this.getX()-1*direction)){
 				Move right = null;
 				right = new Move(this.getY()+(1*this.direction), this.getX()-(1*direction));

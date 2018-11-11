@@ -5,15 +5,15 @@ import Map.Board;
 import Map.Exec;
 import javafx.scene.paint.Color;
 
-public class Löpare extends piece{
+public class Bishop extends piece{
 
-	public Löpare(int x, int y){
-		
-		super(x, y);
+	public Bishop(int y, int x) {
+		super(y, x);
 		// TODO Auto-generated constructor stub
-		this.setFill(Color.WHITE);
 	}
-	
+
+
+
 	
 	
 	@Override
@@ -46,27 +46,21 @@ public class Löpare extends piece{
 		
 	}
 	
-	/*
-	 * +1 +1
-	 * -1 -1
-	 * +1 -1
-	 * -1 +1
-	 * 
-	 */
+	
 	
 	private void horizontal(int y,int x) {
 		// TODO Auto-generated method stub
 
-		if(x>7||x<0||y>7||y<0){
+		if(!this.inParameters(y)|| !this.inParameters(x)){
 			
 			
 			return;
 			
 			
 		}
-		if(!Exec.board.getPiece(y, x).getClass().getSimpleName().equals("Nopiece")){
+		if(!Exec.board.getMapPiece().get(y).get(x).getClass().getSimpleName().equals("Nopiece")){
 			
-			if(x < 8 && y< 8 &&Exec.board.getPiece(y, x).team != this.team ){
+			if(this.inParameters(x)&& this.inParameters(y)&&Exec.board.getMapPiece().get(y).get(x).getClass().getSimpleName().equals("Nopiece") ){
 				Move enemy = new Move(y, x);
 				enemy.enemyBlock();
 				Move.addMove(enemy);

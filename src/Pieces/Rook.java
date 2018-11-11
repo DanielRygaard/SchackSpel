@@ -4,12 +4,12 @@ import Blocks.Move;
 import Map.Board;
 import javafx.scene.paint.Color;
 
-public class Torn extends piece{
+public class Rook extends piece{
 
-	public Torn(int x, int y) {
+	public Rook(int x, int y) {
 		super(x, y);
 		// TODO Auto-generated constructor stub
-		this.setFill(Color.BLUE);
+		
 		
 		
 	}

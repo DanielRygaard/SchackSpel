@@ -8,8 +8,8 @@ public class square extends Rectangle{
 
 	
 	public static double SIZE = 100;
-	public static Paint DARK = Color.SANDYBROWN;
-	public static Paint LIGHT = Color.SADDLEBROWN;
+	public static Paint DARK = Color.DARKGREY;
+	public static Paint LIGHT = Color.LIGHTGREY;
 	
 	
 	square(int x, int y, Paint p){

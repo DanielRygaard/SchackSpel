@@ -5,13 +5,15 @@ import Map.Board;
 import Map.Exec;
 import javafx.scene.paint.Color;
 
-public class Ryttare extends piece{
+public class Knight extends piece{
 
-	public Ryttare(int x, int y) {
-		super(x, y);
+	public Knight(int y, int x) {
+		super(y, x);
 		// TODO Auto-generated constructor stub
-		this.setFill(Color.YELLOW);
 	}
+
+
+	
 	
 	
 	private void ryttareSpecieal() {

@@ -4,22 +4,23 @@ import java.util.ArrayList;
 
 import Map.Board;
 import Map.Exec;
-import Pieces.pawn;
+import Pieces.Pawn;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
-public class Move extends Rectangle{
+public class Move extends Circle{
 
 	static int x;
 	static int y;
 	private static ArrayList<Move> moves = new ArrayList<Move>();
 	public Move(int y, int x){
-		this.setWidth(square.SIZE);
-		this.setHeight(square.SIZE);
-		this.setFill(Color.LIGHTGREY);
+		this.setRadius(square.SIZE/4);
 		
-		this.setTranslateX(x*square.SIZE);
-		this.setTranslateY((y*square.SIZE));
+		this.setFill(Color.GREY);
+		
+		this.setTranslateX(x*square.SIZE +square.SIZE/2);
+		this.setTranslateY((y*square.SIZE + square.SIZE/2));
 		this.x = x;
 		this.y = y;
 	}

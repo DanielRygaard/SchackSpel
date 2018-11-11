@@ -8,13 +8,16 @@ import Blocks.square;
 import Map.Board;
 import Map.Exec;
 import javafx.animation.AnimationTimer;
+import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
-public abstract class piece extends Circle{
+public abstract class piece extends Group{
 	
 	
 	double width = square.SIZE/2;
@@ -41,6 +44,8 @@ public abstract class piece extends Circle{
 	int y;
 
 	
+	Image img;
+	ImageView view = new ImageView();
 	
 	
 	/**
@@ -51,18 +56,29 @@ public abstract class piece extends Circle{
 	piece(int y, int x){
 		
 		// Setts upp the look of a piece
-		this.setRadius(width/2);
-		this.setTranslateX(x*square.SIZE+height);
-		this.setTranslateY(y*square.SIZE+width);
+		
+		this.setTranslateX(x*square.SIZE);
+		this.setTranslateY(y*square.SIZE);
 		
 		// Setts a stroke if the team i light
+		
+		
+		
+		
 		if(this.team == 1){
-			if(!this.getClass().getSimpleName().equals("Nopiece"))
-			this.setStroke(Color.BLACK);
-			this.setStrokeWidth(5);
+			if(!this.getClass().getSimpleName().equals("Nopiece")){
+				img = new Image("/images/"+"BLACK_" +this.getClass().getSimpleName().toUpperCase()+".png");
+			}
+			
+				System.out.println();
 		}else{
-			this.setStroke(Color.TRANSPARENT);
+			img = new Image("/images/"+"BLACK_" +this.getClass().getSimpleName().toUpperCase()+".png");
 		}
+		view.setImage(img);
+		view.setFitHeight(square.SIZE);
+		view.setFitWidth(square.SIZE);
+		
+		this.getChildren().add(view);
 		
 		//Calls check moves when you click on the element
 		this.setOnMouseClicked(e->{
@@ -106,12 +122,13 @@ public abstract class piece extends Circle{
 	public void setTeam(int team) {
 		this.team = team;
 		if(this.team == 1){
-			if(!this.getClass().getSimpleName().equals("Nopiece"))
-			this.setStroke(Color.BLACK);
-			this.setStrokeWidth(5);
-			this.direction = -1;
+			if(!this.getClass().getSimpleName().equals("Nopiece")){
+				img = new Image("/images/"+"BLACK_" +this.getClass().getSimpleName().toUpperCase()+".png");
+				view.setImage(img);
+			}
 		}else{
-			this.setStroke(Color.TRANSPARENT);
+			img = new Image("/images/"+"WHITE_" +this.getClass().getSimpleName().toUpperCase()+".png");
+			view.setImage(img);
 			this.direction = 1;
 		}
 		
@@ -168,14 +185,14 @@ public abstract class piece extends Circle{
 		int number = 0;
 		
 		if(!ifEnemy((int) ((int) y), (int) ((int) x))){
-		number = Exec.getBoard().pieces[(int) ((int) x)][(int) ((int) y)];
+			number = Exec.getBoard().pieces[(int) ((int) x)][(int) ((int) y)];
 		}
 		
 		Exec.getBoard().pieces[(int) ((int) y)][(int) ((int) x)] = Exec.getBoard().pieces[(int) (this.getTranslateY()/square.SIZE)][(int) (this.getTranslateX()/square.SIZE)];
 		Exec.getBoard().pieces[(int) (this.getTranslateY()/square.SIZE)][(int) (this.getTranslateX()/square.SIZE)] = number; 
 		
-		this.setTranslateX(x*square.SIZE+square.SIZE/2);
-		this.setTranslateY(y * square.SIZE+square.SIZE/2);
+		this.setTranslateX(x*square.SIZE);
+		this.setTranslateY(y * square.SIZE);
 		
 		moved = true; 
 		
@@ -248,7 +265,13 @@ public abstract class piece extends Circle{
 		
 		Exec.getBoard().getChildren().remove(Exec.getBoard().getMapPiece().get(y).get(x)); 
 		Exec.getBoard().getMapPiece().get(y).set(x, new Nopiece(y,x));
+		
+		
+		
 	}
+	
+	
+	
 	
 	
 	

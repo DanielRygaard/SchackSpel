@@ -5,12 +5,16 @@ import Map.Board;
 import Map.Exec;
 import javafx.scene.paint.Color;
 
-public class Dam extends piece{
+public class Queen extends piece{
 
-	public Dam(int x, int y) {
-		super(x, y);
-		this.setFill(Color.BLACK);
+	public Queen(int y, int x) {
+		super(y, x);
+		// TODO Auto-generated constructor stub
 	}
+
+
+
+
 
 	
 	@Override

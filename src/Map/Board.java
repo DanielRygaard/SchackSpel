@@ -5,13 +5,13 @@ import Blocks.DarkSquare;
 import Blocks.LightSquare;
 import Blocks.Move;
 import Blocks.square;
-import Pieces.Dam;
-import Pieces.Kung;
-import Pieces.Löpare;
+import Pieces.Bishop;
+import Pieces.King;
+import Pieces.Knight;
 import Pieces.Nopiece;
-import Pieces.Ryttare;
-import Pieces.Torn;
-import Pieces.pawn;
+import Pieces.Queen;
+import Pieces.Rook;
+import Pieces.Pawn;
 import Pieces.piece;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Group;
@@ -33,6 +33,9 @@ public class Board extends Group{
 	 * 5.Kung
 	 * 6.Dam
 	 */
+	
+	public static boolean shaack = false;
+	
 	
 	double width = Exec.width;
 	double height = Exec.height;
@@ -127,22 +130,22 @@ public class Board extends Group{
 						row.add(piece);
 					}
 					if(pieces[y][x] == 11){
-						row.add(new pawn(y,x));
+						row.add(new Pawn(y,x));
 					}
 					if(pieces[y][x] == 12){
-						row.add(new Löpare(y,x));
+						row.add(new Bishop(y,x));
 					}
 					if(pieces[y][x] == 13){
-						row.add(new Ryttare(y,x));
+						row.add(new Knight(y,x));
 					}
 					if(pieces[y][x] == 14){
-						row.add(new Torn(y,x));
+						row.add(new Rook(y,x));
 					}
 					if(pieces[y][x] == 15){
-						row.add(new Kung(y,x));
+						row.add(new King(y,x));
 					}
 					if(pieces[y][x] == 16){
-						row.add(new Dam(y,x));
+						row.add(new Queen(y,x));
 					}
 				}else {
 					if(pieces[y][x] == 0){
@@ -151,33 +154,33 @@ public class Board extends Group{
 						row.add(piece);
 					}
 					if(pieces[y][x] == 21){
-						piece piece = new pawn(y,x);
+						piece piece = new Pawn(y,x);
 						piece.setTranslateZ(20);
 						piece.setTeam(2);
 						row.add(piece);
 					}
 					if(pieces[y][x] == 22){
-						piece piece = new Löpare(y,x);
+						piece piece = new Bishop(y,x);
 						piece.setTeam(2);
 						row.add(piece);
 					}
 					if(pieces[y][x] == 23){
-						piece piece = new Ryttare(y,x);
+						piece piece = new Knight(y,x);
 						piece.setTeam(2);
 						row.add(piece);
 					}
 					if(pieces[y][x] == 24){
-						piece piece = new Torn(y,x);
+						piece piece = new Rook(y,x);
 						piece.setTeam(2);
 						row.add(piece);
 					}
 					if(pieces[y][x] == 25){
-						piece piece = new Kung(y,x);
+						piece piece = new King(y,x);
 						piece.setTeam(2);
 						row.add(piece);
 					}
 					if(pieces[y][x] == 26){
-						piece piece = new Dam(y,x);
+						piece piece = new Queen(y,x);
 						piece.setTeam(2);
 						row.add(piece);;
 					}

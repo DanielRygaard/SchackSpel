@@ -9,9 +9,7 @@ public class Nopiece extends piece{
 		
 		
 		super(x, y);
-		// TODO Auto-generated constructor stub
-		this.setFill(Color.TRANSPARENT);
-		this.setRadius(0);
+		
 	    this.team = 0;
 	}
 
